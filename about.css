@@ -1,0 +1,71 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	outline: 1px green solid;
+}
+/* .debug{
+	border: 1px red solid;
+} */
+body {
+	/* background-color: #1ed1b3; */
+	background-image: url('./images/logo.png');
+	/* background-repeat: repeat;
+  background-position: left bottom; */
+}
+/* .title {
+	font-size: 40px;
+	color: red;
+} */
+h6 {
+	margin: 10px;
+}
+.subtitle {
+	width: 50%;
+	margin: 0 auto;
+	font-size: 20px;
+}
+.greentext {
+	color: green;
+	font-weight: bolder;
+}
+.program {
+	background-color: blue;
+	color: white;
+	text-align: center;
+	padding: 50px;
+}
+.orange {
+	color: orange;
+}
+.card-container {
+	display: flex;
+	/* padding: 20px; */
+	border: 1px rgb(75, 3, 3) solid;
+}
+.card {
+	border: 1px dashed rgb(233, 9, 9);
+	margin: 10px;
+	padding: 20px;
+	/* color: white; */
+	/* display: inline; */
+	font-size: 20px;
+	/* border-left:1px red solid; */
+}
+/* Responsiveinsess css */
+@media screen and (max-width: 600px) {
+	.card-container {
+		/* grid-template-columns: 1fr; */
+		/* flex-wrap: wrap; */
+		flex-direction: column;
+	}
+	.program .subtitle {
+		width: 80%;
+	}
+	.greentext {
+		color: black;
+	}
+}
+
+.icon {
+}

@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Login Page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- interenal css -->
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: Arial, sans-serif;
+			}
+
+			body {
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: linear-gradient(135deg, #4e73df, #1cc88a);
+			}
+
+			.login-container {
+				background: #fff;
+				padding: 40px;
+				width: 350px;
+				border-radius: 10px;
+				box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+			}
+
+			.login-container h2 {
+				text-align: center;
+				margin-bottom: 25px;
+				color: #333;
+			}
+
+			.input-group {
+				margin-bottom: 20px;
+			}
+
+			.input-group label {
+				display: block;
+				margin-bottom: 5px;
+				font-size: 14px;
+				color: #555;
+			}
+
+			.input-group input {
+				width: 100%;
+				padding: 10px;
+				border-radius: 6px;
+				border: 1px solid #ccc;
+				outline: none;
+				transition: 0.3s;
+			}
+
+			.input-group input:focus {
+				border-color: #4e73df;
+				box-shadow: 0 0 5px rgba(78, 115, 223, 0.3);
+			}
+
+			.login-btn {
+				width: 100%;
+				padding: 10px;
+				border: none;
+				border-radius: 6px;
+				background: #4e73df;
+				color: #fff;
+				font-size: 16px;
+				cursor: pointer;
+				transition: 0.3s;
+			}
+
+			.login-btn:hover {
+				background: #2e59d9;
+			}
+
+			.extra-links {
+				text-align: center;
+				margin-top: 15px;
+				font-size: 14px;
+			}
+
+			.extra-links a {
+				text-decoration: none;
+				color: #4e73df;
+			}
+
+			.extra-links a:hover {
+				text-decoration: underline;
+			}
+			.hidden {
+				display: none;
+			}
+			.text {
+				padding: 20px 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="login-container">
+			<h2>Login</h2>
+
+			<form id="form">
+				<div class="input-group">
+					<label>Name</label>
+					<input
+						id="name"
+						type="name"
+						class="namestyle inputstyle"
+						placeholder="Enter your name"
+						required
+					/>
+				</div>
+				<div class="input-group">
+					<label>Email</label>
+					<input
+						id="email"
+						type="email"
+						class="emailstyle inputstyle"
+						placeholder="Enter your email"
+						required
+						value="abc@gmail.com"
+					/>
+				</div>
+
+				<div class="input-group">
+					<label>Password</label>
+					<input
+						id="password"
+						type="password"
+						placeholder="Enter your password"
+						required
+					/>
+				</div>
+
+				<div class="input-group">
+					<label>Age</label>
+					<input id="age" type="number" placeholder="Enter your age" required />
+				</div>
+
+				<button id="submitbtn" type="submit" class="login-btn">Login</button>
+
+				<div class="extra-links">
+					<p><a href="#">Forgot Password?</a></p>
+					<p>Don't have an account? <a href="#">Sign up</a></p>
+				</div>
+			</form>
+
+			<div id="card" class="hidden">
+				<h2>Welcome back</h2>
+				<p>Name: <span id="nameOutput"></span></p>
+				<p>Email: <span id="emailOutput"></span></p>
+				<p>Age: <span id="ageOutput"></span></p>
+				<p class="text">Password: <span id="passwordOutput"></span></p>
+
+				<button id="logoutbtn" class="login-btn">Logout</button>
+			</div>
+		</div>
+		<script>
+			// get elements
+			const button = document.getElementById('submitbtn');
+			const logoutbtn = document.getElementById('logoutbtn');
+			const email = document.getElementById('email');
+			const password = document.getElementById('password');
+			const age = document.getElementById('age');
+			const name = document.getElementById('name');
+
+			// get outPuts elements
+
+			const nameOutput = document.getElementById('nameOutput');
+			const emailOutput = document.getElementById('emailOutput');
+			const ageOutput = document.getElementById('ageOutput');
+			const passwordOutput = document.getElementById('passwordOutput');
+
+			// get card and form
+			const card = document.getElementById('card');
+			const form = document.getElementById('form');
+
+			// console.log(button);
+			// console.log(email);
+			// console.log(password);
+
+			// get values
+			// const emailClass = email.classList;
+			// const emailId = email.id;
+			// console.log("emailClass", emailClass);
+
+			// console.log(emailValue, passwordValue, ageValue);
+
+			// add event listener
+			button.addEventListener('click', (e) => {
+				e.preventDefault();
+				const emailValue = email.value;
+				const passwordValue = password.value;
+				const ageValue = age.value;
+				const nameValue = name.value;
+
+				// console.log(nameValue, emailValue, passwordValue, ageValue);
+				// Validation
+
+				if (!nameValue || !emailValue || !passwordValue || !ageValue) {
+					alert('Please fill all the fields');
+					return;
+				}
+
+				// show card
+				card.classList.remove('hidden');
+				form.classList.add('hidden');
+
+				// set values
+				nameOutput.textContent = nameValue;
+				emailOutput.textContent = emailValue;
+				ageOutput.textContent = ageValue;
+				passwordOutput.textContent = passwordValue;
+			});
+
+			logoutbtn.addEventListener('click', () => {
+				card.classList.add('hidden');
+				form.classList.remove('hidden');
+			});
+
+			// functions
+
+			// const balance = 1000;
+			// const account = 300;
+
+			// const creditWallet = (a, b) => {
+			// 	return a + b;
+			// };
+
+			// const newBalance = creditWallet(balance, account);
+
+			// console.log(newBalance);
+		</script>
+	</body>
+</html>
+
+<!-- Data types -->
+
+<!-- strings
+numbers
+booleans
+null
+undefined -->
+
+<!-- user only login and access thier information -->
+<!-- admin: access all information -->
+
+<!-- Authentication = checking if the user exist in data base
+ Authorization = checking if user has permission to access a resource
+-->
+
+<!-- 
+Assignment
+
+CSS topics
+display
+
+
+html topics
+form 
+input attributes
+
+
+javascrpit topics
+
+DOM
+Events
+methods
+
+-->

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>My First Web Page</h1>
+		<p>My First Paragraph</p>
+
+		<p id="demo" style="color: blue">Testing page</p>
+		<p id="name" style="color: gold">Abdulsalam</p>
+
+		<button type="button" onclick="document.write(5 + 6)">Try it</button>
+
+		<button onclick="window.print()">Print this page</button>
+
+		<script>
+			document.getElementById('demo').innerHTML = `<div>
+                <h2 style="color: red;">Hello World</h2>
+                <h2 class="title">Hello World</h2>
+                <p>Lorem ipsum dolor sit amet "consectetur" adipisicing 'elit'. Doloremque, voluptate.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, voluptate.</p>
+                <a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, voluptate
+                    </div>`;
+
+			document.getElementById('name').innerText = 'Creative Lab';
+
+			// document.write(5 + 6);
+			// alert('welcome to creative lab');
+			console.log('hello world');
+
+			// variables
+			let age = 25;
+			let name = 'Creative Lab';
+			let Name = 'Abdulsalam';
+            const student = 'John';
+
+			console.log(age);
+			console.log(name);
+
+			let balance = 1000;
+			let withdraw = 200;
+			let deposit = 500;
+			// let newBalance = balance + deposit;
+			// let newBalance = balance - withdraw + deposit;
+
+			// Expression
+			let newBalance = balance - withdraw + deposit;
+
+			console.log(newBalance);
+
+			// let sum = age + 10;
+			// console.log(sum);
+
+			if (age > 18) {
+				console.log('You are an adult');
+			} else {
+				console.log('You are a minor');
+			}
+
+			 age = 50;
+			console.log(age);
+            // student = "Jane";
+            name = "Eze"
+
+			// student = "john";
+		</script>
+	</body>
+</html>

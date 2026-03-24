@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.gradeA {
+			color: green;
+		}
+		.gradeB {
+			color: blue;
+		}
+		.gradeC {
+			color: orange;
+		}
+		.gradeD {
+			color: yellow;
+		}
+		.gradeF {
+			color: red;
+		}
+	</style>
+	<!-- <script src="./forget.js"></script>
+	<link rel="stylesheet" href="style.css"> -->
+	<body>
+		<h1>JavaScript Arithmetic</h1>
+		<h2>The += Operator</h2>
+
+		<p id="demo"></p>
+
+		<input
+			type="number"
+			name="score"
+			id="score"
+			value="0"
+			placeholder="Enter student score"
+		/>
+		<button onclick="calculateGrade()">Calculate Grade</button>
+		<p id="result" class="gradeF"></p>
+
+		<script>
+			//var balance = 10;
+			//let credit = 500
+			//balance += credit;
+			//balance = balance + credit;
+
+			const accountA = '200';
+			const accountB = '200';
+			const accountC = '100';
+
+			//strict equality (values and types)
+			//const isTheSame = accountA === accountB
+
+			//double equality (values only)
+			// const isTheSame = accountA == accountB
+
+			// const allTheSame = accountA === accountB && accountB === accountC;
+			const AISB = accountA === accountB;
+			const BISC = accountB != accountC;
+			const allTheSame = AISB === BISC;
+
+			document.getElementById('demo').innerHTML = allTheSame;
+
+			// if else condition
+			// let balance = 1000;
+			// let withdraw = 200;
+
+			// if (balance < withdraw) {
+			// 	console.log('Insufficient funds');
+			// } else {
+			// 	balance -= withdraw;
+			// 	console.log('You can withdraw');
+			// }
+			// console.log('Balance: ' + balance);
+
+			// Student Score Grade
+			// let score = 74;
+			const calculateGrade = () => {
+				let score = document.getElementById('score').value;
+					document.getElementById('result').classList.remove('gradeA');
+
+				if (score >= 90 && score <= 100) {
+					document.getElementById('result').innerHTML = 'Grade: A';
+					document.getElementById('result').classList.add('gradeA');
+					// console.log('Grade: A');
+				} else if (score >= 80 && score <= 89) {
+					document.getElementById('result').innerHTML = 'Grade: B';
+					document.getElementById('result').classList.add('gradeB');
+					// console.log('Grade: B');
+				} else if (score >= 70 && score <= 79) {
+					// console.log('Grade: C');
+					document.getElementById('result').innerHTML = 'Grade: C';
+					document.getElementById('result').classList.add('gradeC');
+				} else if (score >= 60 && score <= 69) {
+					// console.log('Grade: D');
+					document.getElementById('result').innerHTML = 'Grade: D';
+					document.getElementById('result').classList.add('gradeD');
+				} else if (score >= 0 && score < 60) {
+					console.log('Grade: F');
+					document.getElementById('result').innerHTML = 'Grade: F';
+					document.getElementById('result').classList.add('gradeF');
+				} else {
+					document.getElementById('result').innerHTML = 'Invalid score';
+					document.getElementById('result').classList.add('gradeF');
+					// console.log('Invalid score');
+				}
+			};
+		</script>
+	</body>
+</html>
